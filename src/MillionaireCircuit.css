@@ -1,104 +1,269 @@
 :root {
-    --theme-color: #00ff88; /* Define your theme color */
+  --theme-color: #00ff88;
+  --background-gradient: linear-gradient(135deg, #0a0f0d, #16213e);
+  --card-background: #1a1a1a;
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --card-hover-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+  --font-family: 'Inter', sans-serif;
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: #fff;
+  background: var(--background-gradient);
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 190vh;
+  padding: 40px 20px;
+  overflow: hidden;
+}
+
+/* Content Section (Landing Page) */
+.content {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 80px; /* Add space between sections */
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: var(--theme-color);
+  font-weight: 700;
+}
+
+.description {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  color: #ddd;
+}
+
+.cta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.join-button {
+  background: linear-gradient(135deg, var(--theme-color), #00b8ff);
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 10px; /* Reverted to the previous button style */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.join-button:hover {
+  transform: scale(1.05);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.button-text {
+  font-weight: 600;
+}
+
+.button-price {
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.spots-info {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: var(--theme-color);
+  font-weight: 600;
+}
+
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap; /* Ensure badges wrap on smaller screens */
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: var(--theme-color);
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 80px 20px;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  background: var(--background-gradient);
+}
+
+.testimonials-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--theme-color);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.testimonial-card {
+  background: var(--card-background);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--theme-color);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.testimonial-info {
+  text-align: left;
+}
+
+.testimonial-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--theme-color);
+  margin-bottom: 5px;
+}
+
+.testimonial-role {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.testimonial-rating {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.testimonial-rating svg {
+  width: 16px;
+  height: 16px;
+  fill: #ffd700; /* Gold color for stars */
+}
+
+.testimonial-quote {
+  font-size: 1rem;
+  color: #ddd;
+  line-height: 1.6;
+  text-align: left;
+  position: relative;
+  padding-left: 20px;
+}
+
+.testimonial-quote::before {
+  content: '“';
+  position: absolute;
+  left: 0;
+  top: -10px;
+  font-size: 2rem;
+  color: var(--theme-color);
+  opacity: 0.7;
+}
+
+/* Verified Badge */
+.verified-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: var(--theme-color);
+}
+
+.verified-badge svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--theme-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0a0f0d, #16213e);
-    color: #fff;
-    text-align: center;
+
+  .testimonial-card {
     padding: 20px;
-    font-family: 'Inter', sans-serif;
   }
-  
-  .content {
-    max-width: 800px;
-    margin: 0 auto;
+
+  .testimonial-name {
+    font-size: 1.1rem;
   }
-  
-  .title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.2;
-  }
-  
-  .highlight {
-    color: var(--theme-color); /* Use theme color */
-    font-weight: 700;
-  }
-  
-  .description {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    color: #ddd;
-    line-height: 1.6;
-  }
-  
-  .cta-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .join-button {
-    background: linear-gradient(135deg, var(--theme-color), #00b8ff);
-    color: #000;
-    border: none;
-    padding: 18px 40px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .join-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
-  }
-  
-  .button-text {
-    font-weight: 600;
-  }
-  
-  .button-price {
-    font-weight: 500;
-    opacity: 0.9;
-  }
-  
-  .spots-info {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: var(--theme-color); /* Use theme color */
-    font-weight: 600;
-  }
-  
-  .trust-badges {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-  }
-  
-  .badge {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+
+  .testimonial-quote {
     font-size: 0.9rem;
-    color: #ddd;
   }
-  
-  .icon {
-    width: 24px;
-    height: 24px;
-    color: var(--theme-color); /* Use theme color */
+}
+
+@media (max-width: 480px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
   }
+}

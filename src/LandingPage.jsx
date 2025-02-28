@@ -1,9 +1,61 @@
 import { motion } from 'framer-motion';
 import './MillionaireCircuit.css';
-
+import '/assets/profile1.jpg';
+import '/assets/profile2.jpg';
+import  '/assets/profile3.jpg';
+import '/assets/profile4.jpg';
+import  '/assets/profile5.jpg';
+import  '/assets/profile6.jpg';
 export default function MillionaireCircuit() {
+  // Fake testimonials data
+  const testimonials = [
+    {
+      id: 1,
+      name: 'Robert Martinez',
+      role: 'Freelancer',
+      quote: 'This course changed my life! I went from $0 to $10,000/month in just 3 months. Highly recommend!',
+      avatar: '/assets/profile1.jpg',
+    },
+    {
+      id: 2,
+      name: 'James Wilson',
+      role: 'Entrepreneur',
+      quote: 'The AI automation strategies are mind-blowing. I’ve never seen such results before. Worth every penny!',
+      avatar: '/assets/profile2.jpg',
+    },
+    {
+      id: 3,
+      name: 'John Carter',
+      role: 'Digital Marketer',
+      quote: 'The Millionaire Circuit is a game-changer. It’s like having a money-printing machine on autopilot!',
+      avatar: '/assets/profile3.jpg',
+    },
+    {
+      id: 4,
+      name: 'Sarah Lee',
+      role: 'E-commerce Owner',
+      quote: 'I doubled my revenue in just 2 months using the strategies from this course. Absolutely incredible!',
+      avatar: '/assets/profile4.jpg',
+    },
+    {
+      id: 5,
+      name: 'Emily Davis',
+      role: 'Investor',
+      quote: 'The ROI from this course is insane. I’ve already made back 10x my investment. Thank you!',
+      avatar: '/assets/profile5.jpg',
+    },
+    {
+      id: 6,
+      name: 'Michael Thompson',
+      role: 'Content Creator',
+      quote: 'This course gave me the tools to automate my business and focus on what I love. Life-changing!',
+      avatar: '/assets/profile6.jpg',
+    },
+  ];
+
   return (
     <div className="container">
+      {/* Landing Page Section */}
       <motion.div
         className="content"
         initial={{ opacity: 0, y: 20 }}
@@ -98,6 +150,49 @@ export default function MillionaireCircuit() {
           </div>
         </motion.div>
       </motion.div>
+
+      {/* Testimonials Section */}
+      <motion.section
+  className="testimonials"
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 1 }}
+>
+  <h2 className="testimonials-title">What Our Students Say</h2>
+  <div className="testimonials-grid">
+    {testimonials.map((testimonial) => (
+      <motion.div
+        key={testimonial.id}
+        className="testimonial-card"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: testimonial.id * 0.2 }}
+      >
+        <div className="verified-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82 1.89 3.2L12 21.04l3.4 1.47 1.89-3.2 3.61-.82-.34-3.7L23 12zm-10 5.25l-4.55-4.54 1.41-1.41 3.14 3.14 6.59-6.59 1.41 1.41-8 8z" />
+          </svg>
+          <span>Verified</span>
+        </div>
+        <div className="testimonial-header">
+          <img src={testimonial.avatar} alt={testimonial.name} className="testimonial-avatar" />
+          <div className="testimonial-info">
+            <h3 className="testimonial-name">{testimonial.name}</h3>
+            <p className="testimonial-role">{testimonial.role}</p>
+            <div className="testimonial-rating">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              ))}
+            </div>
+          </div>
+        </div>
+        <p className="testimonial-quote">"{testimonial.quote}"</p>
+      </motion.div>
+    ))}
+  </div>
+</motion.section>
     </div>
   );
 }
